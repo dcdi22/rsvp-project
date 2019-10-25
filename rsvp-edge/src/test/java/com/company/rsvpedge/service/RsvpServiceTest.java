@@ -60,8 +60,8 @@ class RsvpServiceTest {
 		when(rsvpClient.createRsvp(rsvp)).thenReturn(rsvp2);
 		when(rsvpClient.getRsvp(2)).thenReturn(rsvp2);
 
-//		verify(rsvpClient, times(1)).createRsvp(rsvp);
-//		verify(rsvpClient, times(1)).getRsvp(2);
+		verify(rsvpClient, times(1)).createRsvp(rsvp);
+		verify(rsvpClient, times(1)).getRsvp(2);
 
 		assertEquals(rsvp2, rsvpClient.getRsvp(2));
 	}

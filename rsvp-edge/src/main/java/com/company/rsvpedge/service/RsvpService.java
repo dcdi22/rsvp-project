@@ -9,10 +9,23 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class RsvpService {
-	@Autowired
+//	@Autowired
 	private RsvpClient rsvpClient;
 
+	public RsvpService() {
+	}
 
+	@Autowired
+	public RsvpService(RsvpClient rsvpClient) {
+		this.rsvpClient = rsvpClient;
+	}
+
+	/**
+	 * Call the feign client and create a rsvp
+	 * @param rsvp
+	 * @return
+	 * @throws WrongNumberOfAttendees
+	 */
 	public Rsvp createRsvp(Rsvp rsvp) throws WrongNumberOfAttendees {
 		if(rsvp.getTotalAttending() < 1 || rsvp.getTotalAttending() > 4) {
 			throw new WrongNumberOfAttendees();
