@@ -15,11 +15,14 @@ public class Rsvp {
     private Integer rsvpId;
     @NotBlank
     @Size(min = 1, max = 50)
+    @Column(name = "guest_name")
     private String guestName;
     @NotNull
+    @Column(name = "total_attending")
     private Integer totalAttending;
     @NotBlank
     @Size(min = 1, max = 20)
+    @Column(name = "phone_number")
     private String phoneNumber;
 
     public Rsvp() {
@@ -27,6 +30,12 @@ public class Rsvp {
 
     public Rsvp(Integer rsvpId, @NotBlank @Size(min = 1, max = 50) String guestName, @NotNull Integer totalAttending, @NotBlank @Size(min = 1, max = 20) String phoneNumber) {
         this.rsvpId = rsvpId;
+        this.guestName = guestName;
+        this.totalAttending = totalAttending;
+        this.phoneNumber = phoneNumber;
+    }
+
+    public Rsvp(@NotBlank @Size(min = 1, max = 50) String guestName, @NotNull Integer totalAttending, @NotBlank @Size(min = 1, max = 20) String phoneNumber) {
         this.guestName = guestName;
         this.totalAttending = totalAttending;
         this.phoneNumber = phoneNumber;
